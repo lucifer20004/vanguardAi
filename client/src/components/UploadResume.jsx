@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../api/axios";
 import { motion } from "framer-motion";
 import { Upload, FileText } from "lucide-react";
+import avatar from "../assets/ai-avatar.png";
 
 export default function UploadResume({ onAnalyze }) {
   const [file, setFile] = useState(null);
@@ -93,10 +94,11 @@ export default function UploadResume({ onAnalyze }) {
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
         onDrop={handleDrop}
-        className={`border-2 border-dashed rounded-xl p-4 text-center transition-all cursor-pointer ${
+        className={`border-2 border-dashed p-4 text-center transition-all cursor-pointer ${
           dragActive ? "border-blue-500 bg-blue-50" : "border-slate-200 hover:border-slate-300"
         }`}
       >
+        <img src={avatar} alt="Upload Placeholder" className="w-12 h-12 mx-auto mb-2" />
         <Upload className="w-6 h-6 mx-auto mb-1.5 text-slate-400" />
         <label className="text-xs text-slate-600 font-medium cursor-pointer">
           {file ? file.name : "Drag or Click"}

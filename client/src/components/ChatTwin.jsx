@@ -83,17 +83,15 @@ export default function ChatTwin({ analysis }) {
 
   return (
     <div className="glass-card rounded-2xl overflow-hidden flex flex-col h-full">
-      {/* Header */}
-      <div className="p-3.5 bg-gradient-to-r from-slate-50 to-slate-100 border-b border-slate-200 flex justify-between items-center">
-        <span className="font-bold text-slate-700 text-xs">Career Twin</span>
-        <img src={avatar} className="w-8 h-8 rounded-full border-2 border-blue-100" alt="AI avatar" />
+      <div className="p-3.5 bg-transparent flex justify-between items-center">
+        <span className="font-bold text-red-600" style={{ fontSize: '30px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em' }}>YOUR FRIENDLY COUNCELLOR</span>
       </div>
 
       {/* Messages */}
       <div className="flex-1 p-4 space-y-3 overflow-y-auto">
         {messages.map((msg, idx) => (
           <div key={idx} className={`flex gap-2 ${msg.type === "user" ? "justify-end" : "justify-start"}`}>
-            {msg.type === "ai" && <img src={avatar} className="w-6 h-6 rounded-full flex-shrink-0" alt="AI" />}
+            {msg.type === "ai" && <img src={avatar} alt="AI" className="w-6 h-6 rounded-full flex-shrink-0" />}
             <div
               className={`max-w-xs px-3.5 py-2.5 rounded-xl text-xs leading-relaxed ${
                 msg.type === "ai"
@@ -107,7 +105,7 @@ export default function ChatTwin({ analysis }) {
         ))}
         {loading && (
           <div className="flex gap-2">
-            <img src={avatar} className="w-6 h-6 rounded-full flex-shrink-0" alt="AI" />
+            <img src={avatar} alt="AI" className="w-6 h-6 rounded-full flex-shrink-0" />
             <div className="bg-blue-600 text-white px-3.5 py-2.5 rounded-xl rounded-tl-none text-xs flex gap-1">
               <span className="animate-bounce">•</span>
               <span className="animate-bounce" style={{ animationDelay: "0.2s" }}>•</span>
@@ -127,13 +125,15 @@ export default function ChatTwin({ analysis }) {
           onKeyPress={handleKeyPress}
           placeholder="Ask about skills, career..."
           disabled={loading}
-          className="flex-1 bg-slate-100 rounded-lg px-3 py-2 outline-none text-xs focus:bg-slate-50 focus:ring-1 focus:ring-blue-300 transition-all disabled:opacity-50"
+          className="flex-1 bg-slate-100 rounded-lg px-3 py-2 outline-none text-xs transition-all disabled:opacity-50"
+          style={{ border: '2px solid #D7263D', borderRadius: '10px' }}
         />
         <button
           type="button"
           onClick={handleSend}
           disabled={loading || !input.trim()}
-          className="bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white p-2 rounded-lg transition-all disabled:cursor-not-allowed flex-shrink-0"
+          className="bg-red-600 hover:bg-red-700 disabled:bg-slate-300 text-white p-2 rounded-lg transition-all disabled:cursor-not-allowed flex-shrink-0"
+          style={{ border: '2px solid #D7263D' }}
         >
           <Send className="w-4 h-4" />
         </button>

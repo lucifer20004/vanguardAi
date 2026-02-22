@@ -4,15 +4,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border-radius: 0 !important;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e0e7ff 100%);
+  background: #F2D9A0 !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  color: #7f1d1d !important;
 }
 
 html {
@@ -39,33 +41,220 @@ html {
 
 /* Glass Morphism Effects */
 .glass-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: #F2D9A0 !important;
+  border: 1px solid #F2D9A0 !important;
+  color: #7f1d1d !important;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
 .glass-blue {
-  background: linear-gradient(120deg, #2563eb 0%, #1d4ed8 45%, #4338ca 100%);
-  box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.2);
+  background: linear-gradient(120deg, #dc2626 0%, #b91c1c 45%, #7f1d1d 100%) !important;
+  box-shadow: 0 8px 32px 0 rgba(220, 38, 38, 0.2);
 }
 
 .soft-shadow {
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
+.shadow-red {
+  box-shadow: 0 8px 32px 0 rgba(220, 38, 38, 0.25);
+}
+
 /* Smooth Transitions */
 button {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.75rem 1.5rem !important;
+  margin: 0.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
 }
 
 input,
 textarea {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s !important;
 }
 
 /* Scrollable Content */
 .overflow-y-auto {
   scrollbar-width: thin;
   scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #450a0a 100%) !important;
+  color: #ffe5e5 !important;
+}
+
+body.dark-mode .glass-card,
+body.dark-mode .glass-blue,
+body.dark-mode .glass-morph {
+  background: #991b1b !important;
+  color: #ffe5e5 !important;
+  border-color: #991b1b !important;
+}
+
+body.dark-mode .soft-shadow {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .bg-slate-50,
+body.dark-mode .bg-blue-50 {
+  background-color: #7f1d1d !important;
+}
+
+body.dark-mode .bg-blue-600,
+body.dark-mode .bg-indigo-700 {
+  background-color: #dc2626 !important;
+}
+
+body.dark-mode .text-slate-800,
+body.dark-mode .text-blue-600,
+body.dark-mode .text-slate-700,
+body.dark-mode .text-slate-500,
+body.dark-mode .text-slate-600 {
+  color: #ffe5e5 !important;
+}
+
+body.dark-mode .border-slate-200,
+body.dark-mode .border-blue-50,
+body.dark-mode .border-slate-500 {
+  border-color: #991b1b !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: #23272f !important;
+  color: #e5e7eb !important;
+  border-color: #374151 !important;
+}
+
+body.dark-mode .bg-slate-200 {
+  background-color: #374151 !important;
+}
+
+body.dark-mode .hover\:bg-blue-600:hover {
+  background-color: #dc2626 !important;
+}
+
+body.dark-mode .bg-orange-400,
+body.dark-mode .bg-orange-500 {
+  background-color: #b45309 !important;
+}
+
+body.dark-mode .bg-gradient-to-r {
+  background: linear-gradient(90deg, #23272f 0%, #181a1b 100%) !important;
+}
+
+body.dark-mode .glass-card .shadow-md {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+}
+
+body.dark-mode .glass-blue {
+  background: linear-gradient(120deg, #23272f 0%, #181a1b 100%) !important;
+}
+
+body.dark-mode .glass-card .border-blue-50 {
+  border-color: #23272f !important;
+}
+
+body.dark-mode .glass-card .border-slate-200 {
+  border-color: #23272f !important;
+}
+
+/* Remove border radius globally */
+* {
+  border-radius: 0 !important;
+}
+
+.glass-card,
+.glass-blue,
+.glass-morph,
+button,
+input,
+textarea,
+.bg-blue-600,
+.bg-indigo-700,
+.bg-white,
+.bg-slate-50,
+.bg-blue-50,
+.bg-orange-400,
+.bg-orange-500,
+.bg-gradient-to-r {
+  border-radius: 0 !important;
+}
+
+/* Improve text padding and visibility */
+.glass-card,
+.glass-blue,
+.glass-morph {
+  padding: 2rem !important;
+}
+
+p, h1, h2, h3, h4, h5, h6, span, label, .text-xs, .text-sm, .text-base, .text-lg, .text-xl {
+  padding: 0.25rem 0.5rem !important;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+/* Animation speed improvements */
+.motion-div,
+.glass-card,
+.glass-blue,
+.glass-morph {
+  transition-duration: 0.15s !important;
+}
+
+/* Replace all blue with red shades */
+.glass-blue {
+  background: linear-gradient(120deg, #dc2626 0%, #b91c1c 45%, #7f1d1d 100%) !important;
+  box-shadow: 0 8px 32px 0 rgba(220, 38, 38, 0.2);
+}
+
+.bg-blue-600,
+.bg-indigo-700,
+.bg-blue-50,
+.bg-blue-500,
+.bg-blue-400 {
+  background-color: #dc2626 !important;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: #dc2626 !important;
+}
+
+.text-blue-600,
+.text-blue-500,
+.text-blue-400 {
+  color: #dc2626 !important;
+}
+
+.border-blue-50,
+.border-blue-500,
+.border-blue-400 {
+  border-color: #dc2626 !important;
+}
+
+/* Replace blue in dark mode as well */
+body.dark-mode .glass-blue {
+  background: linear-gradient(120deg, #7f1d1d 0%, #991b1b 45%, #450a0a 100%) !important;
+}
+body.dark-mode .bg-blue-600,
+body.dark-mode .bg-indigo-700,
+body.dark-mode .bg-blue-50,
+body.dark-mode .bg-blue-500,
+body.dark-mode .bg-blue-400 {
+  background-color: #dc2626 !important;
+}
+body.dark-mode .text-blue-600,
+body.dark-mode .text-blue-500,
+body.dark-mode .text-blue-400 {
+  color: #dc2626 !important;
+}
+body.dark-mode .border-blue-50,
+body.dark-mode .border-blue-500,
+body.dark-mode .border-blue-400 {
+  border-color: #dc2626 !important;
 }

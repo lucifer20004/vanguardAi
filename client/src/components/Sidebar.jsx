@@ -6,6 +6,7 @@ export default function Sidebar({
   futureSkills = [],
   targetRole = "software developer",
   completionPercent = 0,
+  user = null,
 }) {
   const skills = futureSkills.length > 0 ? futureSkills.slice(0, 3) : [];
 
@@ -20,30 +21,26 @@ export default function Sidebar({
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="glass-card rounded-2xl p-4 text-center flex-shrink-0"
+        className="glass-card p-4 text-center flex-shrink-0 shadow-red bg-[#F2D9A0]"
       >
         <div className="relative inline-block mb-3">
           <img
             src={avatar}
-            className="w-20 h-20 rounded-full border-4 border-blue-50 shadow-md mx-auto object-cover"
+            className="w-40 h-40 rounded-full border-4 border-red-600 shadow-md mx-auto object-cover"
             alt="Profile"
           />
-          <div className="absolute bottom-0.5 right-0.5 w-5 h-5 bg-green-500 border-2 border-white rounded-full shadow-md animate-pulse" />
+          <div className="absolute bottom-0.5 right-0.5 w-7 h-7 bg-green-500 border-2 border-white shadow-md animate-pulse rounded-full" />
         </div>
 
-        <h3 className="text-base font-bold text-slate-800 mt-2">Alex Johnson</h3>
+        <h3 className="text-base font-bold text-slate-800 mt-2">
+          {user ? user.email : "Alex Johnson"}
+        </h3>
         <p className="text-xs text-slate-500 mt-0.5 uppercase font-semibold tracking-wide">Target Role</p>
         <p className="text-xs text-slate-700 font-bold mt-1 capitalize h-4">
-          {targetRole}
-        </p>
-        <p className="text-xs text-slate-600 mt-2 font-semibold">
-          Match: <span className="text-blue-600 font-bold">{completionPercent}%</span>
+          {user ? user.targetJob : targetRole}
         </p>
 
-        <button className="w-full mt-3 py-2 bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white rounded-lg font-semibold text-xs transition-all duration-300 shadow-sm flex items-center justify-center gap-1.5">
-          <Edit3 className="w-3.5 h-3.5" />
-          Edit
-        </button>
+        {/*  */}
       </motion.div>
 
       {/* Future Skills Card */}

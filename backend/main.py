@@ -7,6 +7,11 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+import gspread
+from google.oauth2.service_account import Credentials
+
 
 from recommender import recommend_path
 from google import genai

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
+import SignUp from "./pages/SignUp";
 import "./index.css";
 
 /**
@@ -7,12 +9,18 @@ import "./index.css";
  * agar aapko Routing ya Context add karna ho toh asani ho.
  */
 function App() {
+  const [user, setUser] = useState(null);
+
+  if (!user) {
+    return <SignUp onSignUp={setUser} />;
+  }
+
   return (
     <div className="App">
-      <Dashboard />
-
-
-
+      <Dashboard user={user} onLogout={() => {
+        setUser(null);
+        // localStorage.removeItem("userCredentials"); // Do not wipe credentials on logout
+      }} />
     </div>
   );
 }

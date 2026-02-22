@@ -29,7 +29,7 @@ function buildRoadmap(missingSkills = []) {
   }));
 }
 
-export default function Dashboard() {
+export default function Dashboard({ user, onLogout }) {
   const [trend, setTrend] = useState([]);
   const [readiness, setReadiness] = useState(0);
   const [futureSkills, setFutureSkills] = useState([]);
@@ -92,16 +92,25 @@ export default function Dashboard() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-[1600px] mx-auto flex justify-center items-center gap-2"
+          className="max-w-[1600px] mx-auto flex justify-between items-center gap-2"
         >
-          <div className="text-xl font-bold">Career</div>
-          <div>
-            <h1 className="text-lg font-black tracking-tight leading-none uppercase">
-              Vanguard AI
-            </h1>
-            <p className="text-[7px] font-bold opacity-80 mt-0.5 tracking-[0.15em]">
-              Career Counsellor
-            </p>
+          <div className="flex items-center gap-2">
+            <div>
+              <h1 className="text-4xl font-black tracking-tight leading-none uppercase">
+                VANGUARD AI
+              </h1>
+              <p className="text-lg font-bold opacity-80 mt-1 tracking-[0.15em]">
+                Career Counsellor
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <button
+              className="bg-blue-600 text-white font-semibold px-3 py-1 text-xs"
+              onClick={onLogout}
+            >
+              Logout
+            </button>
           </div>
         </motion.div>
       </header>
@@ -169,8 +178,9 @@ export default function Dashboard() {
         >
           <Sidebar
             futureSkills={futureSkills}
-            targetRole={gapAnalysis?.target_role || "software developer"}
+            targetRole={user?.targetJob || gapAnalysis?.target_role || "software developer"}
             completionPercent={gapAnalysis?.completion_percent || 0}
+            user={user}
           />
         </motion.div>
       </div>

@@ -95,7 +95,7 @@ export default function SkillDashboard({ trend = [], readiness = 0, skillIntelli
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 + idx * 0.05 }}
-                className={`p-3 rounded-lg border mb-3 text-xs space-y-2 ${getRecommendationColor(skill.intelligence.recommendation)}`}
+                className={`p-3 rounded-lg border mb-3 text-xs space-y-2 bg-[#FFF9E3]`}
               >
                 <div className="flex items-center justify-between">
                   <span className="text-slate-600"><strong>{skill.status}</strong></span>
